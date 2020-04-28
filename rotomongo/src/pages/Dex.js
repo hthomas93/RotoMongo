@@ -1,9 +1,10 @@
 import React from "react";
+import SearchArea from "../components/SearchArea/SearchArea"
 
 function Dex() {
     return (
         <div>
-            <p>This is the Dex page.</p>
+            <SearchArea></SearchArea>
         </div>
     )
 }

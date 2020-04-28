@@ -8,10 +8,10 @@ function NavBar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="/">RotoMongo</a>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
+                <a className="navbar-brand" href="/">RotoMongo</a>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                        <li className="nav-item active dex">
                             <Link to="/dex" className={location.pathname === "/dex" ? "nav-link active" : "nav-link"}>
                                 Dex
                             </Link>

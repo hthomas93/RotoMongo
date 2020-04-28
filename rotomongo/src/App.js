@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import First from "./pages/First";
 import NavBar from './components/NavBar/NavBar';
 import Dex from "./pages/Dex";
+import Footer from "./components/Footer/Footer";
+
 
 
 function App() {
@@ -13,6 +15,7 @@ function App() {
         <NavBar />
         <Route exact path="/" component={First} />
         <Route exact path="/dex" component={Dex} />
+        <Footer></Footer>
       </div>
     </Router>
   );
