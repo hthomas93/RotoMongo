@@ -44,7 +44,10 @@ class SearchArea extends Component {
                     handleInputChange={this.handleInputChange}
                     handleFormSubmit={this.handleFormSubmit}>
                 </SearchForm>
-                <PokeCard name={this.state.result.name}></PokeCard>
+                <PokeCard name={this.state.result.name}
+                    id={this.state.result.id}
+                >
+                </PokeCard>
             </div>
         )
     }
