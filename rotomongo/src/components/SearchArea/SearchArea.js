@@ -46,6 +46,16 @@ class SearchArea extends Component {
                 </SearchForm>
                 <PokeCard name={this.state.result.name}
                     id={this.state.result.id}
+                    // type1={this.state.result.types[0]}
+                    // type2={this.state.result.types[1]}
+                    height={(this.state.result.height / 10)}
+                    weight={Math.floor((this.state.result.weight / 22))}
+                // speed={this.state.result.stats[0].base_stat}
+                // spdef={this.state.result.stats[1].base_stat}
+                // spatk={this.state.result.stats[2].base_stat}
+                // defense={this.state.result.stats[3].base_stat}
+                // attack={this.state.result.stats[4].base_stat}
+                // hp={this.state.result.stats[5].base_stat}
                 >
                 </PokeCard>
             </div>
