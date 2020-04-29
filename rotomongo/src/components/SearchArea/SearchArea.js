@@ -1,31 +1,53 @@
-import React from "react";
-import NavBar from "../NavBar/NavBar"
+import React, { Component } from "react";
+// import NavBar from "../NavBar/NavBar";
 import "./SearchArea.css"
+import API from "../../utils/API"
+import SearchForm from "../SearchForm/SearchForm";
+import PokeCard from "../PokeCard/PokeCard";
 
-const SearchArea = (props) => {
-    return (
-        <div className="maindiv">
+class SearchArea extends Component {
+    // this sets the state of the component to be the search result
+    state = {
+        result: {},
+        search: ""
+    }
+
+    // as a test case, when the component mounts, do a search for charmeleon from the API
+    componentDidMount() {
+        this.searchMons("charmeleon");
+    }
+
+    searchMons = query => {
+        API.search(query)
+            .then(res => this.setState({ result: res.data }))
+            .catch(err => console.log(err))
+    }
+
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        })
+    }
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.searchMons(this.state.search);
+    }
+
+    render() {
+        return (
             <div>
-                <NavBar />
+                <SearchForm
+                    value={this.state.search}
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}>
+                </SearchForm>
+                <PokeCard name={this.state.result.name}></PokeCard>
             </div>
-            <div className="container">
-                <div className="row justify-content-center">
-                    <div className="col-md-6 searchfield">
-                        <div className="mon-search">
-                            <form onSubmit={props.searchMon} action="">
-                                <div className="input-group mb-3">
-                                    <input onChange={props.handleSearch} id="isbn-input" type="text" className="form-control" aria-label="Your ISBN" aria-describedby="button-addon2" />
-                                    <div className="input-group-append">
-                                        <button className="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default SearchArea;

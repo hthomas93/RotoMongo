@@ -1,11 +1,3 @@
-.container {
-    height: 100%;
-}
-
-.maindiv {
-    height: 100%;
-}
-
-.searchfield {
+.form-group {
     margin-top: 100px;
 }

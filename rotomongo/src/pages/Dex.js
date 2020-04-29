@@ -1,5 +1,5 @@
 import React from "react";
-import SearchArea from "../components/SearchArea/SearchArea"
+import SearchArea from "../components/SearchArea/SearchArea";
 
 function Dex() {
     return (
