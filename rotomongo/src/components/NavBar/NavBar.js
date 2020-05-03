@@ -16,6 +16,11 @@ function NavBar() {
                                 Dex
                             </Link>
                         </li>
+                        <li className="nav-item active teambuilder">
+                            <Link to="/teambuilder" className={location.pathname === "/teambuilder" ? "nav-link active" : "nav-link"}>
+                                Team Builder
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

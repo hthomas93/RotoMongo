@@ -84,7 +84,7 @@ class SearchArea extends Component {
     render() {
 
         return (
-            <div>
+            <div className="page">
                 <SearchForm
                     value={this.state.search}
                     handleInputChange={this.handleInputChange}
