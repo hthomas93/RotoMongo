@@ -1,0 +1,10 @@
+.pkmn-img {
+    height: 300px;
+}
+
+.poke-card {
+    border: 5px solid black;
+    padding: 10px;
+    margin: 10px;
+    background: #eae2b7;
+}

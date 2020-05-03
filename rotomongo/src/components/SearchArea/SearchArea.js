@@ -12,7 +12,7 @@ class SearchArea extends Component {
         search: ""
     }
 
-    // as a test case, when the component mounts, do a search for charmeleon from the API
+    // as a test case, when the component mounts, do a search for bulbasaur from the API
     componentDidMount() {
         this.searchMons("bulbasaur");
     }
@@ -36,21 +36,19 @@ class SearchArea extends Component {
         this.searchMons(this.state.search);
     }
 
-    render() {
+    renderCard() {
+        if (this.state.result.id <= 151) {
+            return (
+                <PokeCard
+                    name={this.state.result.name}
 
-        return (
-            <div>
-                <SearchForm
-                    value={this.state.search}
-                    handleInputChange={this.handleInputChange}
-                    handleFormSubmit={this.handleFormSubmit}>
-                </SearchForm>
-                <PokeCard name={this.state.result.name}
                     id={this.state.result.id}
-                    types={this.state.result.types
+
+                    type={this.state.result.types
                         ?
-                        this.state.result.types : null}
-                    height={(this.state.result.height / 10)}
+                        this.state.result.types[0].type.name : null}
+
+                    height={Math.ceil((this.state.result.height * .1))}
                     weight={Math.floor((this.state.result.weight / 22))}
                     speed={this.state.result.stats
                         ?
@@ -79,6 +77,21 @@ class SearchArea extends Component {
                         : null}
                 >
                 </PokeCard>
+            )
+        }
+    }
+
+    render() {
+
+        return (
+            <div>
+                <SearchForm
+                    value={this.state.search}
+                    handleInputChange={this.handleInputChange}
+                    handleFormSubmit={this.handleFormSubmit}>
+                </SearchForm>
+                {/* I really need to clean up this area, this code is wet AF*/}
+                {this.renderCard()}
             </div>
         )
     }
